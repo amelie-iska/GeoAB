@@ -1,12 +1,40 @@
 # GeoAB:  Towards Realistic Antibody Design and Reliable Affinity Maturation
 ## Installation
-Install requirements
 
-```
-conda create -n geoab python==3.9
+### Installation Instructions for GeoAB (A100 GPU with CUDA 12.2)
+
+```bash
+conda env create -f environment.yaml
 conda activate geoab
-pip install -r requirements.txt
 ```
+```bash
+conda install bioconda::lddt
+```
+```
+pip install fair-esm
+```
+```
+pip install torch==2.1.0+cu121 torchvision==0.16.0+cu121 torchaudio==2.1.0+cu121 --extra-index-url https://download.pytorch.org/whl/cu121
+
+pip install torch-scatter torch-sparse torch-cluster torch-spline-conv torch-geometric -f https://data.pyg.org/whl/torch-2.1.0+cu121.html
+
+# pip install torch-geometric
+```
+```bash
+python -c "
+import torch
+print('PyTorch version:', torch.__version__)
+print('CUDA available:', torch.cuda.is_available())
+print('CUDA version:', torch.version.cuda)
+
+import torch_geometric
+print('PyTorch Geometric version:', torch_geometric.__version__)
+"
+```
+```bash
+chmod +x /home/lily/amelie/Workspace-2/GeoAB/evaluation/TMscore
+```
+
 ## Dataset
 Please follow the data preparation scripts in DyMean, which leads the raw data set as 
 ```
